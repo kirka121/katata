@@ -9,8 +9,13 @@
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
-		<div class="container">
+		<%= render 'layouts/home_page_header' if current_page?('/') %>
+		<div id="main_application_container" class="container">
+			<% flash.each do |key, value| %>
+				<div class="alert alert-<%= key %>"><%= value %></div>
+			<% end %>
 			<%= yield %>
+			<%= debug(params) if Rails.env.development? %>
 		</div>
 		<%= render 'layouts/footer' %>
 	</body>

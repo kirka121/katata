@@ -33,4 +33,7 @@ Katata::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  #make testing secure passwords quick
+  ActiveModel::SecurePassword.min_cost = true
 end
