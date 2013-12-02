@@ -89,12 +89,24 @@ p {
 	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: -1px;
-	padding-top: 20px;
+	//padding-top: 20px;
 	font-weight: bold;
 	line-height: 1;
 	&:hover {
 		color: #fff333;
 		text-decoration: none;
+	}
+}
+
+.logo_container{
+	float: left;
+	margin: 0;
+	padding: 0;
+
+	#text_for_logo{
+		padding-top: 10px;
+		float: left;
+		width: 300px;
 	}
 }
 
@@ -108,7 +120,8 @@ footer {
 	a {
 		color: #555;
 		&:hover {
-			color: #222;
+			color: #fff;
+			text-decoration: none;
 		}
 	}
 	small {
