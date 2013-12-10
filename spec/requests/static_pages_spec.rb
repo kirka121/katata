@@ -16,7 +16,7 @@ describe "Static page" do
 		let(:page_title) 	{ '' }
 		
 		it_should_behave_like "all static pages"
-		it { should_not have_title(' - Home') }
+		it { should have_title('  - Home') }
 	end	
 
 	describe "Help page" do
@@ -55,10 +55,10 @@ describe "Static page" do
 		#expect(page).to have_title(full_title('Help'))
 		click_link "Contact"
 		expect(page).to have_title(full_title('Contact'))
-		click_link "Katata"
-		click_link "sign up now!"
+		click_link "Katata Network"
+		click_link "Register!"
 		expect(page).to have_title(full_title('Sign up'))
-		click_link "Katata"
+		click_link "Katata Network"
 		expect(page).to have_selector('h1', text: "Welcome")
 	end
 end

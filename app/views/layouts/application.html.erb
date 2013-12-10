@@ -2,6 +2,7 @@
 <html>
 	<head>
 	  <title><%= full_title(yield(:title)) %></title>
+	  <%= favicon_link_tag("katata_icon.png") %>
 	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	  <%= csrf_meta_tags %>
@@ -10,12 +11,14 @@
 	<body>
 		<%= render 'layouts/header' %>
 		<%= render 'layouts/home_page_header' if current_page?('/') %>
-		<div id="main_application_container" class="container">
-			<% flash.each do |key, value| %>
-				<div class="alert alert-<%= key %>"><%= value %></div>
-			<% end %>
-			<%= yield %>
-			<%= debug(params) if Rails.env.development? %>
+		<div class="container">
+				<% flash.each do |key, value| %>
+			<div id="main_application_container">
+					<div class="alert alert-<%= key %>"><%= value %></div>
+				<% end %>
+				<%= yield %>
+				<%= debug(params) if Rails.env.development? %>
+			</div>
 		</div>
 		<%= render 'layouts/footer' %>
 	</body>

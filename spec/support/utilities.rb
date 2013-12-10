@@ -1,5 +1,5 @@
 def full_title(page_title)
-	base_title = "Katata Web"
+	base_title = "Katata Network"
 	if page_title.empty?
 		base_title
 	else
