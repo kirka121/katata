@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :microposts, dependent: :destroy
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 	validates :name, 	presence: true, 
@@ -17,9 +18,14 @@ class User < ActiveRecord::Base
 
     	def User.encrypt(token)
     		Digest::SHA1.hexdigest(token.to_s)
-   	 end
+   	end
 
-    private
+   	def feed
+   		# this is preliminary. see "folowing users" for the full implementation
+   		Micropost.where("user_id = ?", id)
+   	end
+
+    	private
 	    	def create_remember_token
 	    		self.remember_token = User.encrypt(User.new_remember_token)
 	    	end

@@ -5,6 +5,7 @@ Katata::Application.routes.draw do
   #RESTful resources
   resources :users
   resources :sessions, only: [:new, :create, :destory]
+  resources :microposts, only: [:create, :destroy]
 
   #mapped paths
   match '/signin', to: 'sessions#new', via: 'get'
